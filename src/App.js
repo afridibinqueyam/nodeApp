@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Toolbar from './component/Toolbar';
-import NodeFlow from './component/NodeFlow';
 import { useState } from 'react';
-import { Button, Modal } from 'antd';
 import QuickCreateModal from './component/QuickCreateModal';
 import CustomNodeFlow from './component/NodeFlow';
-import LayoutComp from './component/Layout';
 import Header from './component/Header';
 import WorkflowComp from './component/WorkflowComp';
 import { useSelector } from 'react-redux';
@@ -26,7 +22,6 @@ function App() {
   
   return (
     <div>
-      {/* <LayoutComp> */}
       <Header/>
       <Toolbar {...{toggleAddModal,setToggleAddModal,savedNodes,savedEdges}}/>
     {(templateStack?.length !== 0) &&  <WorkflowComp
@@ -46,9 +41,7 @@ function App() {
       (
       <QuickCreateModal{...{toggleAddModal,setToggleAddModal,templateStack,setTemplateStack}}/>
       )
-      }
-      {/* </LayoutComp> */}
-     
+      }     
   
     </div>
   );
