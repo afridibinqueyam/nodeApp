@@ -11,3 +11,97 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.react-flow__node-selectorNode {
+  font-size: 12px;
+  background: #eee;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+}
+.grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Allows mouse events to pass through */
+  background-image: linear-gradient(rgb(203, 172, 172) 1px, transparent 1px),
+                    linear-gradient(to right, rgb(230, 194, 194) 1px, transparent 1px);
+  background-size: 20px 20px; /* Adjust to control grid spacing */
+}
+
+.header {
+  background-color: #001f3f; /* Dark navy background */
+  color: white;               /* White text */
+  padding: 10px;             /* Some padding */
+  text-align: left;        /* Centered text */
+  font-family: Arial, sans-serif; 
+}
+
+.header-title {
+  margin: 0;                /* Remove default margin */
+  font-size: 14px;         /* Font size */
+}
+.d-flex{
+  display: flex;
+}
+.ml-2{
+  margin-right: 20px;
+}
+.container-1{
+  background-color: #ddebf8;
+}
+.space-between{
+  display: flex;
+  justify-content: space-between;
+}
+.ml-2{
+  margin-left: 20px;
+}
+.dropdown{
+  padding-right: 10%;
+  border: 2px solid black;
+  height: 30px;
+  display: inline-block;
+  margin: 5px;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.vertical-container {
+  display: flex;
+  flex-direction: column; /* Aligns children vertically */
+  gap: 10px; /* Adds space between elements */
+}
+
+.select-node {
+  margin-top: 10px; /* Optional spacing above the select */
+}
+
+.add-button {
+  margin-top: 10px; /* Optional spacing above the button */
+}
+.toolbar {
+  display: flex; /* Use flexbox for layout */
+  background-color: #f0f0f0; /* Toolbar background color */
+  padding: 10px; /* Padding around the toolbar */
+  border: 1px solid #ddd; /* Optional border */
+  border-radius: 5px; /* Rounded corners */
+  gap: 10px; /* Space between buttons */
+}
+
+.toolbar Button {
+  display: flex; /* Ensure button contents are aligned */
+  align-items: center; /* Center items vertically */
+  padding: 8px 12px; /* Button padding */
+  font-size: 14px; /* Font size */
+  border: none; /* Remove default button border */
+  border-radius: 4px; /* Optional button rounding */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.2s; /* Smooth background color change */
+}
+
+.toolbar Button:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+}
