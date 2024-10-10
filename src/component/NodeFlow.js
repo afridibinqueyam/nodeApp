@@ -22,9 +22,9 @@ const nodeTypes = {
 
 const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 
-const CustomNodeFlow = ({selectedNode}) => {
+const CustomNodeFlow = ({selectedNode,setSavednodes,nodeEdges,setSavedEdges}) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(selectedNode);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(nodeEdges);
   const [bgColor, setBgColor] = useState(initBgColor);
 
   
@@ -141,8 +141,10 @@ const CustomNodeFlow = ({selectedNode}) => {
     // };
   
     // updateNodesAndEdges();
-  }, []);
-console.log(nodes,'nodes');
+    setSavednodes(nodes);
+    setSavedEdges(edges);
+  }, [selectedNode,edges]);
+console.log(edges,'nodes');
 
   const onConnect = useCallback(
     (params) =>
@@ -184,6 +186,8 @@ console.log(nodes,'nodes');
       ]
       );
   }
+  console.log(edges,'edges');
+  
   return (
    <div style={{ height: 600, width: '100%', position: 'relative' }}>
     <div className="grid" />

@@ -9,33 +9,38 @@ import CustomNodeFlow from './component/NodeFlow';
 import LayoutComp from './component/Layout';
 import Header from './component/Header';
 import WorkflowComp from './component/WorkflowComp';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  const nodeStack = useSelector((state) => state.nodeStack.nodeStack);
+  const edgeStack = useSelector((state) => state.nodeStack.edgeStack);
   const [toggleAddModal,setToggleAddModal] = useState(false);
   const [toggleDropdown,setToggleDropdown] = useState(true);
   const [templateStack,setTemplateStack] = useState([])
-  const [selectedNode,setSelectedNode] = useState([]);
-  console.log(selectedNode,'selectedNode');
+  const [selectedNode,setSelectedNode] = useState( nodeStack?.length ? nodeStack : []);
+  const [savedNodes,setSavednodes] = useState([])
+  const [nodeEdges,setNodeEdges] = useState(edgeStack?.length ? edgeStack : [])
+  const [savedEdges,setSavedEdges] = useState();
+  console.log(savedNodes,'savedNodes',nodeStack,nodeStack,savedEdges);
   
   return (
     <div>
       {/* <LayoutComp> */}
       <Header/>
-      <Toolbar {...{toggleAddModal,setToggleAddModal}}/>
+      <Toolbar {...{toggleAddModal,setToggleAddModal,savedNodes,savedEdges}}/>
     {(templateStack?.length !== 0) &&  <WorkflowComp
       {
         ...{
           toggleDropdown,
           setToggleDropdown,
           templateStack,
-          // setNodeStack,
-          // setShowNodeFlow,
           setSelectedNode,
           selectedNode,
         }
       }
       />}
-    { Object.keys(selectedNode)?.length   && <CustomNodeFlow key={selectedNode?.length} {...{selectedNode}}/>}
+    { Object.keys(selectedNode)?.length   && <CustomNodeFlow key={selectedNode?.length} {...{selectedNode,setSavednodes,nodeEdges,setSavedEdges}}/>}
       {toggleAddModal 
       &&
       (
